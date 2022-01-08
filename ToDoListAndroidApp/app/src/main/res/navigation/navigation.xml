@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/categoryFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.group.todolist.ui.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryWithTasksFragment"
+            app:destination="@id/categoryWithTasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.group.todolist.ui.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/categoryWithTasksFragment"
+        android:name="com.group.todolist.ui.CategoryWithTasksFragment"
+        android:label="fragment_category_with_tasks"
+        tools:layout="@layout/fragment_category_with_tasks" >
+        <action
+            android:id="@+id/action_categoryWithTasksFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+        <argument
+            android:name="category_object"
+            app:argType="com.group.todolist.data.entities.Category" />
+        <action
+            android:id="@+id/action_categoryWithTasksFragment_to_addingTaskFragment"
+            app:destination="@id/addingTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addingTaskFragment"
+        android:name="com.group.todolist.ui.AddingTaskFragment"
+        android:label="fragment_adding_task"
+        tools:layout="@layout/fragment_adding_task" >
+        <action
+            android:id="@+id/action_addingTaskFragment_to_categoryWithTasksFragment"
+            app:destination="@id/categoryWithTasksFragment" />
+        <argument
+            android:name="category_object"
+            app:argType="com.group.todolist.data.entities.Category" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.group.todolist.ui.SettingsFragment"
+        android:label="SettingsFragment" />
+</navigation>

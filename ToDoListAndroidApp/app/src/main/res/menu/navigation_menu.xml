@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/categoryFragment"
+        android:title="@string/category_menu_title"
+        android:icon="@drawable/ic_baseline_category_24"/>
+    <item
+        android:id="@+id/taskFragment"
+        android:title="@string/task_menu_title"
+        android:icon="@drawable/ic_baseline_article_24"/>
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="@string/setting_fragment_title"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+</menu>

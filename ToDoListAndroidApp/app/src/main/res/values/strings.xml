@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category_menu_title">Category</string>
+    <string name="task_menu_title">Task</string>
+    <string name="category_name_inputtext_hint">Category Name</string>
+    <string name="add_category_dialog_title">Add Category Dialog</string>
+    <string name="add_button_title">add</string>
+    <string name="cancel_button_title">Cancel</string>
+    <string name="empty_category_field_notification">Category name is emplty</string>
+    <string name="task_delete_item_title">Delete</string>
+    <string name="adding_task_title">Adding Task</string>
+    <string name="task_name_et_hint">Task Name</string>
+    <string name="task_due_date_et_hint">Due Date</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Select theme</string>
+    <string name="attachment_summary_on">Dark Theme
+    </string>
+    <string name="attachment_summary_off">Light Theme</string>
+    <string name="setting_fragment_title">Setting</string>
+    <string name="all_tasks_btn_title">All Tasks</string>
+</resources>
