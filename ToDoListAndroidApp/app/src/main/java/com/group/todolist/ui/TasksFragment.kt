@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.group.todolist.R
 import com.group.todolist.adapter.CategoryWithTaskAdapter
 import com.group.todolist.adapter.TaskAdapter
+import com.group.todolist.adapter.decorator.TaskRecyclerviewDecorator
 import com.group.todolist.data.entities.Category
 import com.group.todolist.data.entities.Task
 import com.group.todolist.viewmodel.MainActivityViewModel
@@ -62,7 +63,11 @@ class TaskFragment : Fragment(),View.OnClickListener {
         taskAdapter = TaskAdapter()
         rcv_tasks.adapter = taskAdapter
         rcv_tasks.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
+        //init rcv decorator
+        val sidePadding  = resources.getDimension(R.dimen.sidePadding)
+        val topPadding = resources.getDimension(R.dimen.topPadding)
+        val taskRecyclerviewDecorator = TaskRecyclerviewDecorator(sidePadding = sidePadding, topPadding = topPadding)
+        rcv_tasks.addItemDecoration(taskRecyclerviewDecorator)
         taskAdapter.setItemActionListener(object : TaskAdapter.ItemActionListener{
             override fun clickDelete(task: Task) {
                 viewModel.deleteTask(task)
@@ -79,6 +84,8 @@ class TaskFragment : Fragment(),View.OnClickListener {
         categoryWithTaskAdapter = CategoryWithTaskAdapter()
         rcv_categories.adapter = categoryWithTaskAdapter
         rcv_categories.layoutManager = GridLayoutManager(requireContext(), 3, LinearLayoutManager.VERTICAL, false)
+
+
         viewModel.categoryLiveData.observe(viewLifecycleOwner,{
             categoryWithTaskAdapter.setData(it)
         })

@@ -11,11 +11,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.group.todolist.R
 import com.group.todolist.adapter.TaskAdapter
+import com.group.todolist.adapter.decorator.TaskRecyclerviewDecorator
 import com.group.todolist.data.entities.Category
 import com.group.todolist.data.entities.Task
 import com.group.todolist.viewmodel.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_category_with_tasks.*
+import kotlinx.android.synthetic.main.fragment_task.*
 
 @AndroidEntryPoint
 class CategoryWithTasksFragment : Fragment(), View.OnClickListener {
@@ -59,6 +61,11 @@ class CategoryWithTasksFragment : Fragment(), View.OnClickListener {
         taskAdapter = TaskAdapter()
         rcv_category_with_tasks.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         viewmodel.getTasksInCategory(category.id)
+        //init rcv decorator
+        val sidePadding  = resources.getDimension(R.dimen.sidePadding)
+        val topPadding = resources.getDimension(R.dimen.topPadding)
+        val taskRecyclerviewDecorator = TaskRecyclerviewDecorator(sidePadding = sidePadding, topPadding = topPadding)
+        rcv_category_with_tasks.addItemDecoration(taskRecyclerviewDecorator)
         viewmodel.taskLiveData.observe(viewLifecycleOwner,{categoryWithTask ->
             taskAdapter?.setData(categoryWithTask.tasksList)
         })
